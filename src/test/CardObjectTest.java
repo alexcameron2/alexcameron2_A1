@@ -28,51 +28,47 @@ public class CardObjectTest {
 		Assert.assertTrue("Card suit should be Hearts", testCard.getSuit().equals("hearts"));
 	}
 	
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	//Test to prove that a Card will not be created if given a bad Rank
 	public void create_card_with_bad_rank(){
 		//Given
 		String rankSuit = "JesterClubs";
 		//When
 		Card testCard = new Card(rankSuit);
-		//Then
-		Assert.assertNull(testCard);
+		//Then there is an IllegalArgumentException for rank
 	}
 	
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	//Test to prove that a Card will not be created if given a bad suit
 	public void create_card_with_bad_suit(){
 		//Given
 		String rankSuit = "FourAnkhs";
 		//When
 		Card testCard = new Card(rankSuit);
-		//Then
-		Assert.assertNull(testCard);
+		//Then there is an IllegalArgumentException for suit
 	}	
 	
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	//Test to prove that a Card will not be created if given an invalid RankSuit format
 	public void create_card_with_bad_format(){
 		//Given
 		String rankSuit = "ThReeSPadEs";
 		//When
 		Card testCard = new Card(rankSuit);
-		//Then
-		Assert.assertNull(testCard);
+		//Then there is an IllegalArgumentException for RankSuit
 	}
 	
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	//Test to prove that a Card will not be created with garbage input
 	public void create_card_with_bad_input(){
 		//Given
 		String rankSuit = "8YGLL YY1sfv97 005";
 		//When
 		Card testCard = new Card(rankSuit);
-		//Then
-		Assert.assertNull(testCard);
+		//Then there is an IllegalArgumentException for RankSuit
 	}
 	
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	//Test to prove that a Card will not be created given a lowercase string
 	public void create_card_with_lowercase(){
 		//Given
@@ -80,28 +76,26 @@ public class CardObjectTest {
 		//When
 		Card testCard = new Card(rankSuit);
 		//Then
-		Assert.assertNull(testCard);
+		//Then there is an IllegalArgumentException for RankSuit
 	}
 	
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	//Test to prove that a Card will not be created given a uppercase string
 	public void create_card_with_uppercase(){
 		//Given
 		String rankSuit = "TWOSPADES";
 		//When
 		Card testCard = new Card(rankSuit);
-		//Then
-		Assert.assertNull(testCard);
+		//Then there is an IllegalArgumentException for RankSuit
 	}
 	
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	//Test to prove a card will not be created when given an empty string
 	public void create_card_with_empty(){
 		//Given
 		String rankSuit = "";
 		//When
 		Card testCard = new Card(rankSuit);
-		//Then
-		Assert.assertNull(testCard);
+		//Then there is an IllegalArgumentException for RankSuit
 	}
 }

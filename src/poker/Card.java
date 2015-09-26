@@ -1,7 +1,10 @@
 package poker;
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
-public class Card {
+public class Card{
 	
 	//Each card consists of a numerical value or rank and a suit
 	private String rank,suit;
@@ -34,9 +37,22 @@ public class Card {
 	
 	//Constructor
 	public Card(String rankSuit){
+		String r, s;
 		String[] splitString = rankSuit.split("(?=\\p{Upper})");
-		rank = splitString[0].toLowerCase();
-		suit = splitString[1].toLowerCase();
+		if (!(splitString.length == 2)){
+			throw new IllegalArgumentException("Card input must be in the form: RankSuit");
+		}
+		r = splitString[0].toLowerCase();
+		if (!(ranks.containsKey(r))){
+			throw new IllegalArgumentException("Rank was input incorrectly.: " + r);
+		}
+		s = splitString[1].toLowerCase();
+		if (! (suits.contains(s))){
+			throw new IllegalArgumentException("Suit was input incorrectly" + s);
+		}
+		suit = s;
+		rank = r;
+		
 	}
 	
 	//Getters
