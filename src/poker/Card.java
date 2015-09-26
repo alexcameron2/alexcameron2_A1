@@ -50,8 +50,8 @@ public class Card{
 		if (! (suits.contains(s))){
 			throw new IllegalArgumentException("Suit was input incorrectly" + s);
 		}
-		suit = s;
-		rank = r;
+		this.suit = s;
+		this.rank = r;
 		
 	}
 	
@@ -63,8 +63,5 @@ public class Card{
 	public String getSuit(){
 		return this.suit;
 	}
-	
-	
-	
-	
+		
 }
