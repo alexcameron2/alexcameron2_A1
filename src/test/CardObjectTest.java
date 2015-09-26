@@ -20,5 +20,14 @@ public class CardObjectTest {
 		Assert.assertTrue("The rank of the card should be 2", testCard.getRank() == 2);
 				
 	}
+	@Test
+	public void create_card_and_return_suit(){
+		//Given
+		String rankSuit = "AceHearts";
+		//When
+		Card testCard = new Card(rankSuit);
+		//Then
+		Assert.assertTrue("Card suit should be Hearts", testCard.getSuit().equals("hearts"));
+	}
 	
 }
