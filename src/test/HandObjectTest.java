@@ -1,50 +1,79 @@
 package test;
 
-import org.junit.Test;
 import org.junit.Assert;
+import org.junit.Test;
+
+import poker.Card;
+import poker.Hand;
 
 public class HandObjectTest {
 
-	@Test public void create_hand_and_return_cards(){
+	@Test
+	//Test to prove that a hand can be input into the system with the expected cards
+	public void create_hand_and_return_cards(){
 		//IF
+		Card one = new Card("TwoHearts");
+		Card two = new Card("FourDiamonds");
+		Card three = new Card("KingClubs");
+		Card four = new Card("NineSpades");
+		Card five = new Card("AceHearts");
+		Card[] cards = new Card[]{one, two, three, four, five};
+		
+		String testString = "00517 TwoHearts FourDiamonds KingClubs NineSpades AceHearts";
+		//WHEN
+		Hand testHand = new Hand(testString);
 		//THEN
-		//When
-		Assert.assertTrue(false);
+		Assert.assertArrayEquals("Cards returned by hand where cards input manually", cards, testHand.getCards());
+		
 	}	
 	
-	@Test public void create_hand_and_return_owner(){
+	@Test
+	//Test to prove that a hand can input into the system with the expected owner
+	public void create_hand_and_return_owner(){
 		//IF
+		String testString = "01876 FiveClubs SixClubs SevenClubs EightClubs NineClubs";
+		//WHEN
+		Hand testHand = new Hand(testString);
 		//THEN
-		//When
-		Assert.assertTrue(false);
+		Assert.assertTrue("Owner of the testHand should be 01876", testHand.getOwner().equals("01876"));
 	}
 	
-	@Test public void create_hand_too_few_arguments(){
+	@Test (expected = IllegalArgumentException.class)
+	//Test to prove that a hand will not be created when given too few arguments
+	public void create_hand_too_few_arguments(){
 		//IF
-		//THEN
-		//When
-		Assert.assertTrue(false);
+		String testString = "01876 FiveClubs SevenClubs EightClubs NineClubs";
+		//WHEN
+		Hand testHand = new Hand(testString);
+		//THEN there is an IllegalArgumentException for values;
 	}
 	
-	@Test public void create_hand_empty(){
+	@Test (expected = IllegalArgumentException.class) 
+	public void create_hand_empty(){
 		//IF
-		//THEN
-		//When
-		Assert.assertTrue(false);
+		String testString = "";
+		//WHEN
+		Hand testHand = new Hand(testString);
+		//THEN there is an IllegalArgumentException for values
 	}	
 	
-	@Test public void create_hand_and_too_many_arguments(){
+	@Test (expected = IllegalArgumentException.class)
+	//Test to prove that a hand will not be created given too many arguments
+	public void create_hand_and_too_many_arguments(){
 		//IF
-		//THEN
-		//When
-		Assert.assertTrue(false);
+		String testString = "09178 AceSpades JackClubs JackHearts JackDiamonds JackSpades TenClubs";
+		//WHEN
+		Hand testHand = new Hand(testString);
+		//THEN there is an IllegalArgumentException for values
 	}
 	
-	@Test public void create_hand_with_invalid_card(){
+	@Test (expected = IllegalArgumentException.class)
+	public void create_hand_with_invalid_card(){
 		//IF
-		//THEN
-		//When
-		Assert.assertTrue(false);
+		String testString = "076517 AceClubs, AceHearts, AceCats, AceSpades, AceDiamonds";
+		//WHEN
+		Hand testHand = new Hand(testString);
+		//THEN there is an IllegalArgumentException for the card
 	}
 	
 }
