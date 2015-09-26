@@ -45,7 +45,7 @@ public class Card {
 	}
 	
 	public String getSuit(){
-		return "null";
+		return this.suit;
 	}
 	
 	
