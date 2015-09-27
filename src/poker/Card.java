@@ -48,16 +48,41 @@ public class Card{
 		}
 		s = splitString[1].toLowerCase();
 		if (! (suits.contains(s))){
-			throw new IllegalArgumentException("Suit was input incorrectly" + s);
+			throw new IllegalArgumentException("Suit was input incorrectly.: " + s);
 		}
 		this.suit = s;
 		this.rank = r;
 		
 	}
 	
+	//Overides
+	@Override
+	public boolean equals(Object other){
+		if (other == null) { return false;}
+		if (!(other instanceof Card)){return false;}		
+		if (other == this) { return true; }
+		
+		Card temp = (Card)other;
+		if ((temp.getRank() == this.getRank()) && (temp.getSuit().equals(this.suit))){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
+	@Override
+	public String toString(){
+		return this.rank + this.suit;
+	}
+	
 	//Getters
 	public int getRank(){
 		return ranks.get(this.rank);
+	}
+	
+	public String getRankAsString(){
+		return this.rank;
 	}
 	
 	public String getSuit(){

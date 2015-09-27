@@ -12,18 +12,20 @@ public class HandObjectTest {
 	//Test to prove that a hand can be input into the system with the expected cards
 	public void create_hand_and_return_cards(){
 		//IF
-		Card one = new Card("TwoHearts");
-		Card two = new Card("FourDiamonds");
-		Card three = new Card("KingClubs");
-		Card four = new Card("NineSpades");
-		Card five = new Card("AceHearts");
-		Card[] cards = new Card[]{one, two, three, four, five};
+		Card[] expected = new Card[5];
+		Card[] actual;
+		expected[0] = new Card("TwoHearts");
+		expected[1] = new Card("FourDiamonds");
+		expected[2] = new Card("KingSpades");
+		expected[3] = new Card("NineSpades");
+		expected[4] = new Card("AceHearts");
 		
-		String testString = "00517 TwoHearts FourDiamonds KingClubs NineSpades AceHearts";
+		String testString = "00517 TwoHearts FourDiamonds KingSpades NineSpades AceHearts";
 		//WHEN
 		Hand testHand = new Hand(testString);
+		actual = testHand.getCards();
 		//THEN
-		Assert.assertArrayEquals("Cards returned by hand where cards input manually", cards, testHand.getCards());
+		Assert.assertArrayEquals("Cards returned by the hand are the same as the manually entered expected cards: " , expected, actual);
 		
 	}	
 	
@@ -70,7 +72,7 @@ public class HandObjectTest {
 	@Test (expected = IllegalArgumentException.class)
 	public void create_hand_with_invalid_card(){
 		//IF
-		String testString = "076517 AceClubs, AceHearts, AceCats, AceSpades, AceDiamonds";
+		String testString = "076517 AceClubs AceHearts AceCats AceSpades AceDiamonds";
 		//WHEN
 		Hand testHand = new Hand(testString);
 		//THEN there is an IllegalArgumentException for the card
