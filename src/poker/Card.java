@@ -44,11 +44,11 @@ public class Card{
 		}
 		r = splitString[0].toLowerCase();
 		if (!(ranks.containsKey(r))){
-			throw new IllegalArgumentException("Rank was input incorrectly.: " + r);
+			throw new IllegalArgumentException("Rank was input incorrectly.");
 		}
 		s = splitString[1].toLowerCase();
 		if (! (suits.contains(s))){
-			throw new IllegalArgumentException("Suit was input incorrectly.: " + s);
+			throw new IllegalArgumentException("Suit was input incorrectly.");
 		}
 		this.suit = s;
 		this.rank = r;

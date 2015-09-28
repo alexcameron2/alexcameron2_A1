@@ -14,7 +14,7 @@ public class RoundManager {
 	//Method asks the user to enter the ID's of every player participating this round
 	//PlayerIDs can be any string..for now.
 		//But they are input as a single string and delimited by white space.
-	public void requestPlayerIDs(){
+	public void collectPlayerIDs(){
 		Scanner userInput = new Scanner(System.in);
 		String playerIDs;
 		
@@ -33,8 +33,17 @@ public class RoundManager {
 		
 	}
 	
+	public void collectHands(){
+		
+	}
+	
 	//Getters
 	public String[] getPlayerIDs(){
 		return validPlayers;
+	}
+	
+	//Setters for testing purposes
+	public void setter_for_testing_validPlayers(String[] p){
+		validPlayers = p;
 	}
 }
