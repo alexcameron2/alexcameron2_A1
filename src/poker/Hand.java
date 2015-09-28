@@ -24,6 +24,12 @@ public class Hand {
 		owner = splitString[0]; //It can be literally anything..for now
 	}
 	
+	//Overrides
+	@Override
+	public String toString(){
+		return "Player: " + owner + "..."  + cards[0].toString() + " " + cards[1].toString() + " " + cards[2].toString() + " " + cards[3].toString() + " " + cards[4].toString();
+	}
+	
 	//Getters
 	public Card[] getCards(){
 		return this.cards;
