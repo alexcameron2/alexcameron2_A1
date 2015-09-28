@@ -58,10 +58,10 @@ public class RoundManagerObjectTest {
 		}				
 		//THEN
 		players = testRM.getPlayerIDs();
-		Assert.assertTrue("The number of players should be 3.:", players.length == 3);
+		Assert.assertTrue("The number of players should be 3.: " + players, players.length == 3);
 	}	
 	
-	@Test
+	/*@Test
 	//Test to prove that the RoundManager will not accept a hand with an invalid player ID
 	public void create_hand_with_invalid_id(){
 		//IF
@@ -89,5 +89,5 @@ public class RoundManagerObjectTest {
 	//Test to prove that the RoundManager will not accept a hand that has a card owned by another player
 	public void create_hand_with_a_duplicate_card(){
 		
-	}
+	}*/
 }
