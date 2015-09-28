@@ -211,7 +211,7 @@ public class RoundManagerObjectTest {
 		//THEN there is an IllegalArgumentException thrown for RoundManager		
 	}
 	
-/*	@Test
+	@Test
 	//Test to prove that hands can be displayed
 	public void can_display_hands(){
 		//IF
@@ -221,12 +221,12 @@ public class RoundManagerObjectTest {
 		RoundManager testRM = new RoundManager();
 		testRM.collectPlayerIDs();
 		//WHEN
-		userInput = "Meepo AceSpades TwoHearts FourClubs JackDiamonds TwoClubs" + "\nJaws AceClubs TwoHearts FiveClubs SixDiamonds NineClubs" ;
+		userInput = "Meepo AceSpades TwoHearts FourClubs JackDiamonds TwoClubs" + "\nJaws AceClubs SevenClubs ThreeClubs SixDiamonds NineClubs" ;
 		System.setIn(new ByteArrayInputStream(userInput.getBytes()));
 		testRM.collectHands();
 		//THEN
-		String expected = "Meepo acelubs sevenhearts fivehearts queenspades jackclubs\nCameron queencearts, twoclubs, threeclubs, fourspades, eightclubs";
+		String expected = "Meepo acespades twohearts fourclubs jackdiamonds twoclubs\nJaws aceclubs, sevenclubs, threeclubs, sixdiamonds, nineclubs";
 		String actuall = testRM.displayHands();
-	}*/
+	}
 	
 }
