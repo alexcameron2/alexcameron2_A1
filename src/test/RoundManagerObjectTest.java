@@ -114,14 +114,15 @@ public class RoundManagerObjectTest {
 		//IF
 		String expected = "Invalid player ID entered for hand.";
 		RoundManager testRM = new RoundManager();
-		String userInput = "Meepo LoneDruid Jaws" + "\nJeeves AceSpades TwoHearts FourClubs JackDiamonds TwoClubs";
+		String userInput = "Meepo LoneDruid";
 		//WHEN
 		InputStream stdIn = System.in;
 		System.setIn(new ByteArrayInputStream(userInput.getBytes()));
 					
-		//Now Scanner.nextLine() == userInput and can be tested by RoundManager
 		testRM.collectPlayerIDs();
 		//AND
+		userInput = "Jeeves AceSpades TwoHearts FourClubs JackDiamonds TwoClubs" + "\nMeepo JackHearts JackDiamonds ThreeClubs SixSpades SevenClubs";
+		System.setIn(new ByteArrayInputStream(userInput.getBytes()));
 		try{
 			testRM.collectHands();
 		}catch(IllegalArgumentException ex){
@@ -139,14 +140,14 @@ public class RoundManagerObjectTest {
 		//IF
 		String expected = "Player ID entered already has a hand.";
 		RoundManager testRM = new RoundManager();
-		String userInput = "Meepo LoneDruid Jaws" + "\nMeepo AceSpades TwoHearts FourClubs JackDiamonds TwoClubs" + "\nMeepo AceSpades TwoHearts FourClubs JackDiamonds TwoClubs" ;
+		String userInput = "Meepo LoneDruid";
 		//WHEN
 		InputStream stdIn = System.in;
 		System.setIn(new ByteArrayInputStream(userInput.getBytes()));
-					
-		//Now Scanner.nextLine() == userInput and can be tested by RoundManager
 		testRM.collectPlayerIDs();
-		//AND
+		//AND		
+		userInput = "Meepo AceSpades TwoHearts FourClubs JackDiamonds TwoClubs" + "\nMeepo AceSpades TwoHearts FourClubs JackDiamonds TwoClubs";
+		System.setIn(new ByteArrayInputStream(userInput.getBytes()));
 		try{
 			testRM.collectHands();
 		}catch(IllegalArgumentException ex){
@@ -164,19 +165,20 @@ public class RoundManagerObjectTest {
 		//IF
 		String expected = "One or more Cards entered is already in a player's hand!.";
 		RoundManager testRM = new RoundManager();
-		String userInput = "Meepo LoneDruid Jaws" + "\nMeepo AceSpades TwoHearts FourClubs JackDiamonds AceSpades";
+		String userInput = "Meepo LoneDruid";
 		//WHEN
 		InputStream stdIn = System.in;
 		System.setIn(new ByteArrayInputStream(userInput.getBytes()));
 					
-		//Now Scanner.nextLine() == userInput and can be tested by RoundManager
 		testRM.collectPlayerIDs();
 		//AND
+		userInput = "Meepo AceSpades TwoHearts FourClubs JackDiamonds AceSpades" + "\nLoneDruid JackHearts KingClubs KingHearts KingSpades JackDiamonds";
+		System.setIn(new ByteArrayInputStream(userInput.getBytes()));
 		try{
 			testRM.collectHands();
 		}catch(IllegalArgumentException ex){
 			Assert.assertTrue("Exception for Card existing", ex.getMessage().equals(expected));
-			thow ex;
+			throw ex;
 		}finally{
 			System.setIn(stdIn);
 		}
@@ -189,14 +191,15 @@ public class RoundManagerObjectTest {
 		//IF
 		String expected = "One or more Cards entered is already in a player's hand!.";
 		RoundManager testRM = new RoundManager();
-		String userInput = "Meepo LoneDruid Jaws" + "\nMeepo AceSpades TwoHearts FourClubs JackDiamonds TwoClubs" + "\nJaws AceClubs TwoHearts FiveClubs SixDiamonds NineClubs" ;
+		String userInput = "Meepo Jaws";
 		//WHEN
 		InputStream stdIn = System.in;
 		System.setIn(new ByteArrayInputStream(userInput.getBytes()));
 					
-		//Now Scanner.nextLine() == userInput and can be tested by RoundManager
 		testRM.collectPlayerIDs();
 		//AND
+		userInput = "Meepo AceSpades TwoHearts FourClubs JackDiamonds TwoClubs" + "\nJaws AceClubs TwoHearts FiveClubs SixDiamonds NineClubs" ;
+		System.setIn(new ByteArrayInputStream(userInput.getBytes()));
 		try{
 			testRM.collectHands();
 		}catch(IllegalArgumentException ex){

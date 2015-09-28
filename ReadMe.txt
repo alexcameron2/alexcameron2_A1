@@ -26,7 +26,8 @@ Given Requirement: Input the player's hands in the form on an ID followed by 5 c
 			RoundManagerObjectTest.java:			
 						create_hand_with_invalid_id
 						create_hand_with_duplicate_id
-						create_hand_with_duplicate_card
+						create_hand_with_duplicate_cards
+						create_hand_with_a_duplicate_card
 						
 Given Requirement: Determine how many players are participating each round(which defines valid IDs)
 		Test methods:
