@@ -10,6 +10,8 @@ INSTRUCTIONS
 -Email used(no contact, I know): OnBoardRope@gmail.com
 -Student Email: alex.cameron2@carleton.ca
 
+--NOTE! if you do want to run a very simple last-minute version of the unfinished program for some sweet manual input the just run GameManager.java as a Java app.
+
 Given Requirement: Input the player's hands in the form on an ID followed by 5 cards...
 	Derived requirement: A card can be input into the system
 		Test methods:
