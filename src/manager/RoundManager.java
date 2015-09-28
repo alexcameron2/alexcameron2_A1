@@ -84,12 +84,19 @@ public class RoundManager {
 		}
 	}
 	
+	public void evaluateHands(){
+		if (hands.length != validPlayers.length){
+			return;
+		}
+	}
+	
 	//Getters
 	public String[] getPlayerIDs(){
 		return validPlayers;
 	}
 	
 	//Helpers
+	//Method checks if a given player name is in the validPlayers list
 	private boolean isValidPlayer(String player){
 		boolean value = false;
 		for(int i=0;i<validPlayers.length;i++){
@@ -101,6 +108,7 @@ public class RoundManager {
 		return value;
 	}
 	
+	//Method that checks to see if any card in a given hand already exists in the system
 	private boolean isValidHand(Hand aHand){
 		boolean value = true;
 		Card[] potentialCards = aHand.getCards();

@@ -210,4 +210,23 @@ public class RoundManagerObjectTest {
 		}
 		//THEN there is an IllegalArgumentException thrown for RoundManager		
 	}
+	
+	@Test
+	//Test to prove that hands can be displayed
+	public void can_display_hands(){
+		//IF
+		String userInput = "Alex Cameron";
+		System.setIn(new ByteArrayInputStream(userInput.getBytes()));
+		
+		RoundManager testRM = new RoundManager();
+		testRM.collectPlayerIDs();
+		//WHEN
+		userInput = "Alex AceClubs SevenHearts FiveHearts QueenSpades JackClubs" + "\nCameron QueenHearts, TwoClubs, ThreeClubs, FourSpades, EightClubs";
+		System.setIn(new ByteArrayInputStream(userInput.getBytes()));
+		testRM.collectHands();
+		//THEN
+		String expected = "Alex AceClubs SevenHearts FiveHearts QueenSpades JackClubs\nCameron QueenHearts, TwoClubs, ThreeClubs, FourSpades, EightClubs";
+	//	String actuall = testRM.displayHands();
+	}
+	
 }
